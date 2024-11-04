@@ -7,8 +7,15 @@
 
 
 class Player {
+public :
+
+
+private:
+
 
 };
+
+
 
 
 #endif //C_SUPINFO_PLAYER_H

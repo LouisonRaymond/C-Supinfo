@@ -5,4 +5,6 @@
 #ifndef C_SUPINFO_GAME_H
 #define C_SUPINFO_GAME_H
 
+int Game_loop();
+
 #endif //C_SUPINFO_GAME_H

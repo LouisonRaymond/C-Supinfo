@@ -1,5 +1,9 @@
-//
-// Created by Peon4 on 04/11/2024.
-//
-
+#include <iostream>
 #include "../include/Game.h"
+
+
+int Game_loop()
+{
+    std::cout << "Game loop" << std::endl;
+    return 0;
+}

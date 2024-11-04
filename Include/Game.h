@@ -1,10 +1,27 @@
 //
-// Created by Peon4 on 04/11/2024.
+// Created by Anice on 04/11/2024.
 //
 
-#ifndef C_SUPINFO_GAME_H
-#define C_SUPINFO_GAME_H
+#ifndef GAME_H
+#define GAME_H
 
-int Game_loop();
+#endif //GAME_H
+#include <vector>
+#include "Player.h"
+#include "Board.h"
 
-#endif //C_SUPINFO_GAME_H
+class Game {
+public:
+    Game(int boardSize, const std::vector<std::string> &playerNames, const std::vector<std::string> &playerColors);
+
+    void start(); // Démarre le jeu
+    void nextTurn(); // Passe au tour suivant
+
+private:
+    Board board;
+    std::vector<Player> players;
+    int currentPlayerIndex;
+
+    void initializePlayers(const std::vector<std::string> &playerNames, const std::vector<std::string> &playerColors);
+};
+

@@ -17,6 +17,7 @@ add_executable(C_Supinfo
         ../source/menu.cpp
         ../source/game.cpp
         ../include/game.h
+        Include/Tiles.h
 
 
 )

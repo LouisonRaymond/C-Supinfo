@@ -18,4 +18,5 @@ add_executable(C_Supinfo
         ../source/game.cpp
         ../include/game.h
 
-    )
+
+)

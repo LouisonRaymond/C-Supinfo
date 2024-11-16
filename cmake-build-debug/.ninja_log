@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # ninja log v5
 39	175	7524187690896152	CMakeFiles/C_Supinfo.dir/Source/Game.cpp.obj	44cc0bc51ff607c1
 50	178	7524187690896152	CMakeFiles/C_Supinfo.dir/Source/Player.cpp.obj	8b70bcfd51162360
@@ -9,3 +10,6 @@
 1	104	7524190100635106	CMakeFiles/C_Supinfo.dir/Source/main.cpp.obj	8c6cc3287a105c54
 8	595	7524190105532584	CMakeFiles/C_Supinfo.dir/Source/Game.cpp.obj	44cc0bc51ff607c1
 597	755	7524190107077909	C_Supinfo.exe	3bf9ca6ac6ac80c5
+=======
+# ninja log v6
+>>>>>>> Stashed changes

@@ -143,4 +143,5 @@ CMakeFiles/C_Supinfo.dir/Source/Game.cpp.obj: \
  C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Menu.h \
  C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Board.h \
  C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Player.h \
+ C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Tiles.h \
  C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Tiles.h

@@ -23,7 +23,12 @@ void Tile::displayTile() const {
     std::cout << "Tile #" << tileNumber << ":\n";
     for (const auto& row : shape) {
         for (int cell : row) {
-            std::cout << (cell == 1 ? "x " : ". ");
+            // Afficher "x" si cell vaut 1, sinon ne rien afficher
+            if (cell == 1) {
+                std::cout << "x ";
+            } else {
+                std::cout << "  "; // Afficher un espace vide pour conserver l'alignement
+            }
         }
         std::cout << std::endl;
     }
@@ -35,18 +40,31 @@ std::vector<Tile> initializeTiles() {
 
     // Exemple de formes pour les tuiles
     std::vector<std::vector<std::vector<int>>> tileShapes = {
-        {{1}},  // Tuile 1
-        {{1, 1}}, // Tuile 2
-        {{1}, {1}}, // Tuile 3
-        {{1, 1, 1}}, // Tuile 4
-        {{1}, {1}, {1}}, // Tuile 5
-        {{1, 1, 1, 1}}, // Tuile 6
-        {{1}, {1}, {1}, {1}}, // Tuile 7
-        {{1, 0}, {1, 1}}, // Tuile 8
-        {{1, 1}, {1, 0}}, // Tuile 9
-        {{1, 1}, {1, 1}}, // Tuile 10
-        // Ajouter d'autres formes jusqu'à 96 tuiles
+        {{1}, {1, 1, 1}},  // Tuile 1
+        {{0, 1}, {0, 1}, {1, 1, 1}}, // Tuile 2
+        {{0, 1}, {1, 1, 1}, {0, 1}}, // Tuile 3
+        {{0, 0, 1}, {1, 1, 1}, {1}}, // Tuile 4
+        {{0, 1}, {1, 1, 1}}, // Tuile 5
+        {{1, 1}, {1, 1}}, // Tuile 6
+        {{1, 0, 1}, {1, 1, 1}}, // Tuile 7
+        {{1, 1, 1}}, // Tuile 8
+        {{0, 1}, {1, 1}, {1}}, // Tuile 9
+        {{1}, {1, 1}}, // Tuile 10
+        {{0, 0, 1}, {0, 1, 1}, {1, 1}}, // Tuile 11
+        {{1, 1}}, // Tuile 12
+        {{0, 1}, {1, 1}, {1}, {1}, {1, 1}}, // Tuile 13
+        {{1, 1, 1}, {1}, {1}, {1}, {1}},  // Tuile 14
+        {{0, 0, 0, 1}, {0, 0, 0, 1}, {0, 0, 0, 1, 1}, {0, 1, 1, 1}, {1, 1}},  // Tuile 15
+        {{0, 0, 1}, {0, 1, 1}, {1, 1}, {1}},  // Tuile 16 fin premiere ligne
+
+
+
+
     };
+    for (int i = 0; i < 96; ++i) {
+        tiles.emplace_back(i + 1, tileShapes[i % tileShapes.size()]);
+    }
+
     return tiles;
 }
 

@@ -29,9 +29,19 @@ int Game_loop()
     // Create the board
     Board gameBoard(player_number);
 
-    while (true) {
+
+    bool turn_left = true;
+    while (turn_left) {
+        turn_left = false;
+
         gameBoard.display();
 
+        for (auto& player : players) {
+            if (player.hasRemainingTurns()) {
+                player.takeTurn();
+                turn_left = true; // Il y a encore des tours restants
+            }
+        }
 
 
 
@@ -43,5 +53,6 @@ int Game_loop()
             break;
         }
     }
+    std::cout << "The Game is finished ! " << std::endl;
     return 0;
 }

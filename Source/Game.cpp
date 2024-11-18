@@ -11,14 +11,25 @@
 
 
 
+
 int Game_loop()
 {
-    //Tiles
-    std::vector<Tile> tiles = initializeTiles();
-    tiles[12].displayTile();
-
     // Get the number of players
     const int player_number = Menu_player_number();
+
+    // //Tiles
+    // std::vector<Tile> tiles = initializeTiles();
+    // tiles[12].displayTile();
+    //
+    // // Tester la rotation
+    // tiles[12].rotate();
+    // std::cout << "\nTuile après rotation :\n";
+    // tiles[12].displayTile();
+    //
+    // // Tester le flip
+    // tiles[12].flip();
+    // std::cout << "\nTuile après flip :\n";
+    // tiles[12].displayTile();
 
     // Get the player information
     extern std::vector<Player> players;
@@ -39,23 +50,17 @@ int Game_loop()
     while (turn_left) {
         turn_left = false;
 
+        // during all player turn
         for (auto& player : players) {
             if (player.hasRemainingTurns()) {
 
+                //print player info
+                player.display();
+
                 gameBoard.display();
                 player.takeTurn();
-                turn_left = true; // Il y a encore des tours restants
+                turn_left = true; // there is still turn left
             }
-        }
-
-
-
-
-
-
-        //if l & L is pressed the game will stop
-        if (Menu_exit() == 0) {
-            break;
         }
     }
     std::cout << "The Game is finished ! " << std::endl;

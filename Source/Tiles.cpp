@@ -1,8 +1,15 @@
 //Library
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include <random>
+#include <cmath>
 
 //Include
 #include "../Include/Tiles.h"
+#include "../include/Menu.h"
+#include "../include/Player.h"
+
 
 // Constructeur
 Tile::Tile(int number, const std::vector<std::vector<int>>& shape)
@@ -67,6 +74,33 @@ std::vector<Tile> initializeTiles() {
 
     return tiles;
 }
+
+// Méthode pour faire pivoter la tuile de 90 degrés dans le sens horaire
+void Tile::rotate() {
+    int rows = shape.size();
+    int cols = shape[0].size();
+    std::vector<std::vector<int>> rotatedShape(cols, std::vector<int>(rows));
+
+    // Transposer puis inverser les colonnes
+    for (int i = 0; i < rows; ++i) {
+        for (int j = 0; j < cols; ++j) {
+            rotatedShape[j][rows - 1 - i] = shape[i][j];
+        }
+    }
+    shape = rotatedShape;
+}
+
+// Méthode pour retourner la tuile horizontalement (flip)
+void Tile::flip() {
+    int rows = shape.size();
+    // Inverser l'ordre des lignes
+    for (int i = 0; i < rows / 2; ++i) {
+        std::swap(shape[i], shape[rows - 1 - i]);
+    }
+}
+
+
+
 
 
 

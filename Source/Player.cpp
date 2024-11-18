@@ -4,6 +4,7 @@
 
 //Include
 #include "Player.h"
+#include "Menu.h"
 
 
 std::vector<Player> players;
@@ -33,7 +34,7 @@ Player::Player(int id, std::string  name) : id(id), name(std::move(name)), curre
 // Fonction pour afficher le joueur avec sa couleur
 void Player::display() const {
     std::cout << color; // Appliquer la couleur
-    std::cout << "Player " << id << " " << name << " -" << std::endl;
+    std::cout << "Player " << id << " " << name << " - Turn : " << currentTurn + 1 << std::endl;
     std::cout << "\033[0m"; // Réinitialiser la couleur
 }
 
@@ -45,16 +46,38 @@ void Player::takeTurn() {
 
         std::cout << "Take tile(T)" << std::endl;
         std::cout << "Exchange tile - " << exchangeTiles << " available (E)" << std::endl;
-        std :: cout << "Display queue (D)" << std::endl;
+        std::cout << "Display queue (D)" << std::endl;
+        std::cout << "Skip Turn (P))" << std::endl;
+        std::cout << "Exit (L)" << std::endl;
 
         std::cout << "Enter an action > : ";
         std::cin >> action;
 
         // Gérer l'action entrée
-        if (action == "passer") {
-            std::cout << "Le joueur " << name << " passe son tour.\n";
+        if (action == "T" || action == "t") {
+            // if (!tileQueue.empty()) {
+            //     std::cout << "Vous jouez la tuile suivante.\n";
+            //     tileQueue.erase(tileQueue.begin());
+            // }
+        } else if (action == "E" || action == "e" && exchangeTiles > 0) {
+            // if (!tileQueue.empty()) {
+                // Tile exchangedTile = tileQueue.front();
+                // tileQueue.erase(tileQueue.begin());
+                // pushTileToEnd(exchangedTile);
+                exchangeTiles--;
+                std::cout << "Tuile échangée et remise à la fin de la file.\n";
+            // }
+        } else if (action == "l" || action == "L") {
+            exit(0);
+        } else if (action == "D" || action == "d") {
+            // displayTileQueue();
+            takeTurn();
+        } else if (action == "P" || action == "p") {
+            std::cout << "Turn skipped" << std::endl;
         } else {
-            std::cout << "Action '" << action << "' réalisée par " << name << ".\n";
+            std::cout << "Action invalide.\n";
+            takeTurn();
+            currentTurn--;
         }
     }
 }

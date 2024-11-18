@@ -21,6 +21,12 @@ public:
 
     // Afficher la tuile
     void displayTile() const;
+
+    void rotate();
+
+    void flip();
+
+
 };
 
 // Déclaration de la fonction pour initialiser les tuiles

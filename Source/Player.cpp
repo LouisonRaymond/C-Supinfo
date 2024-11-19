@@ -5,6 +5,7 @@
 //Include
 #include "Player.h"
 #include "Menu.h"
+#include "../include/Board.h"
 
 
 std::vector<Player> players;
@@ -39,9 +40,25 @@ void Player::display() const {
 }
 
 // Méthode pour le tour du joueur
-void Player::takeTurn() {
+void Player::takeTurn(std::queue<Tile>& tileQueue) {
     if (currentTurn < 10) {
         currentTurn++;
+
+        // Afficher la tuile actuelle
+        if (!tiles.empty()) {
+            std::cout << "Current Tile :\n";
+            tiles[0].displayTile();
+
+            // Afficher les 5 prochaines tuiles
+            std::cout << "\nNext Tiles :\n";
+            for (size_t i = 1; i < tiles.size(); ++i) {
+                tiles[i].displayTile();
+            }
+        } else {
+            std::cout << "No Tiles Left\n";
+        }
+
+
         std::string action;
 
         std::cout << "Take tile(T)" << std::endl;
@@ -71,14 +88,17 @@ void Player::takeTurn() {
             exit(0);
         } else if (action == "D" || action == "d") {
             // displayTileQueue();
-            takeTurn();
+            takeTurn(tileQueue);
         } else if (action == "P" || action == "p") {
             std::cout << "Turn skipped" << std::endl;
         } else {
             std::cout << "Action invalide.\n";
-            takeTurn();
+            takeTurn(tileQueue);
             currentTurn--;
         }
+        // Mettre à jour les tuiles du joueur après son action
+        updateTiles(tileQueue);
+
     }
 }
 
@@ -95,6 +115,31 @@ void Player::addExchangeTile() {
 int Player::getExchangeTiles() const {
     return exchangeTiles;
 }
+
+// Mettre à jour les tuiles du joueur
+void Player::updateTiles(std::queue<Tile>& tileQueue) {
+    tiles.clear();
+
+    // Ajouter la tuile actuelle + 5 suivantes à la liste du joueur
+    for (int i = 0; i < 6 && !tileQueue.empty(); ++i) {
+        tiles.push_back(tileQueue.front());
+        tileQueue.pop();
+    }
+}
+
+int Player::getId() const {
+    return id;
+}
+
+const std::string& Player::getName() const {
+    return name;
+}
+
+const std::string& Player::getColor() const {
+    return color;
+}
+
+
 
 
 

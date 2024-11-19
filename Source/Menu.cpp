@@ -7,6 +7,7 @@
 #include "../Include/Board.h"
 #include "../Include/Player.h"
 #include "../Include/Game.h"
+#include "../Include/Tiles.h"
 
 //function to get the number of players
 int Menu_player_number() {
@@ -28,10 +29,10 @@ int Menu_player_number() {
     return number_of_players;
 }
 
-int menu_player_info(int number_of_players) {
-
+int menu_player_info(int number_of_players, std::queue<Tile>& tileQueue) {
     // Initialiser et afficher chaque joueur
     extern std::vector<Player> players;
+
     for (int i = 1; i <= number_of_players; ++i) {
         std::string name;
 
@@ -39,9 +40,16 @@ int menu_player_info(int number_of_players) {
         std::cout << "Entrez le nom du joueur " << i << " : ";
         std::cin >> name;
 
-        // Créer un joueur et l'ajouter au vecteur
-        players.emplace_back(i, name);
+        // Créer un joueur
+        Player player(i, name);
+
+        // Donner au joueur ses tuiles initiales
+        player.updateTiles(tileQueue);
+
+        // Ajouter le joueur au vecteur global
+        players.push_back(player);
     }
+
     return 0;
 }
 
@@ -55,6 +63,11 @@ int Menu_exit() {
     }
     return 1;
 }
+
+
+
+
+
 
 
 

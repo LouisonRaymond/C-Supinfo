@@ -27,5 +27,6 @@ BUG : SI IL Y A LE TEMPS
 - Quand une mauvaise touche ést appuyer et que ensuite le tours ce passe le joueur ou la        CORRIGER
   mauvaise touche a était appuyer a +2 a son compteur de tour au lieux de +1                    CORRIGER
 
--
+- PROBLEME AVEC LA QUEUE SE re distribue aléatoirement a chaque changement de joueur alors que elle est sensé rester pareille
+
 

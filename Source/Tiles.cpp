@@ -4,6 +4,8 @@
 #include <algorithm>
 #include <random>
 #include <cmath>
+#include <queue>
+#include <chrono>
 
 //Include
 #include "../Include/Tiles.h"
@@ -173,6 +175,24 @@ void Tile::flip() {
     for (int i = 0; i < rows / 2; ++i) {
         std::swap(shape[i], shape[rows - 1 - i]);
     }
+}
+
+std::queue<Tile> initializeTileQueue(int numPlayers) {
+    std::vector<Tile> allTiles = initializeTiles();
+    int totalPlayableTiles = static_cast<int>(std::round(10.67 * numPlayers));
+    totalPlayableTiles = std::min(totalPlayableTiles, 96); // Limiter à 96 tuiles maximum
+
+    // Mélanger l'ensemble des tuiles avec une graine aléatoire
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::shuffle(allTiles.begin(), allTiles.end(), std::default_random_engine(seed));
+
+    // Mettre les tuiles mélangées dans une queue
+    std::queue<Tile> tileQueue;
+    for (int i = 0; i < totalPlayableTiles; ++i) {
+        tileQueue.push(allTiles[i]);
+    }
+
+    return tileQueue;
 }
 
 

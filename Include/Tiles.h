@@ -32,5 +32,7 @@ public:
 // Déclaration de la fonction pour initialiser les tuiles
 std::vector<Tile> initializeTiles();
 
+std::queue<Tile> initializeTileQueue(int numPlayers);
+
 #endif // TILES_H
 

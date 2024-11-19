@@ -4,9 +4,11 @@
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
+#include <map>
 
 //Include
 #include "../include/Board.h"
+#include "../include/Player.h"
 
 // Constructor
 Board::Board(int players) {
@@ -24,7 +26,7 @@ void Board::initialize(int players) {
     board = std::vector<std::vector<int>>(size, std::vector<int>(size, 0));
 }
 
-// Print the grid with the alphabet on the sides
+//Print the grid with the alphabet on the sides
 void Board::display() const {
     // Upper line with the alphabet
     std::cout << "  ";

@@ -27,7 +27,7 @@ int Game_loop()
     // Initialiser les joueurs avec leurs noms et leurs tuiles
     menu_player_info(player_number, tileQueue);
 
-    gameBoard.display();
+    // gameBoard.display();
 
     bool turn_left = true;
     while (turn_left) {
@@ -45,6 +45,7 @@ int Game_loop()
 
                 //turn of the players
                 player.takeTurn(tileQueue);
+
                 turn_left = true; // there is still turn left
             }
         }

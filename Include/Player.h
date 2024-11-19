@@ -33,6 +33,8 @@ public:
     const std::string& getName() const; // Retourne le nom du joueur
     const std::string& getColor() const; // Retourne la couleur du joueur
 
+
+
 private:
     int id;                 // Numéro du joueur
     std::string name;       // Nom du joueur

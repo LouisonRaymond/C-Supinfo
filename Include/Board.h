@@ -2,6 +2,9 @@
 #define BOARD_H
 
 #include <vector>
+#include <map>
+#include <string>
+#include "Player.h"
 
 class Board {
 private:
@@ -13,6 +16,8 @@ public:
     void initialize(int players); // Initialize the grid
     void display() const; // print the grid
     void reset(int players); // Initialize the grid with special tiles
+
+
 private:
     void placeSpecialTiles(int count, int type); // Place special tiles
     bool isValidPosition(int row, int col) const; // Check if the position is valid

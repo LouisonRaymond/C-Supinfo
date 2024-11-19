@@ -72,22 +72,50 @@ void Player::takeTurn(std::queue<Tile>& tileQueue) {
 
         // Gérer l'action entrée
         if (action == "T" || action == "t") {
-            // if (!tileQueue.empty()) {
-            //     std::cout << "Vous jouez la tuile suivante.\n";
-            //     tileQueue.erase(tileQueue.begin());
-            // }
+            if (!tileQueue.empty()) {
+
+                std::cout << "Flip tile (F)" << std::endl;
+                std::cout << "Rotate tile (R)" << std::endl;
+                std::cout << "Place tile (P)" << std::endl;
+
+                std::cout << "Enter an action > : ";
+                std::cin >> action;
+
+                if (action == "F" || action == "f") {
+                    tiles[0].flip();
+                    tiles[0].displayTile();
+                } else if (action == "R" || action == "r") {
+                    tiles[0].rotate();
+                    tiles[0].displayTile();
+                } else if (action == "P" || action == "p") {
+                    // Placer la tuile sur le plateau
+                    std::cout << "Enter the position (ex: AC ou CF) > : ";
+                    std::string position;
+                    std::cin >> position;
+
+                }
+
+
+            }
         } else if (action == "E" || action == "e" && exchangeTiles > 0) {
-            // if (!tileQueue.empty()) {
-                // Tile exchangedTile = tileQueue.front();
-                // tileQueue.erase(tileQueue.begin());
-                // pushTileToEnd(exchangedTile);
+            if (!tileQueue.empty()) {
+                std::cout << "Tuile échangée.\n";
+                tiles.push_back(tileQueue.front());
+                tileQueue.pop();
+
                 exchangeTiles--;
-                std::cout << "Tuile échangée et remise à la fin de la file.\n";
-            // }
+
+            }
         } else if (action == "l" || action == "L") {
             exit(0);
         } else if (action == "D" || action == "d") {
-            // displayTileQueue();
+
+            std::cout << "\nNext Tiles :\n";
+            for (size_t i = 1; i < tiles.size(); ++i) {
+                tiles[i].displayTile();
+            }
+
+            currentTurn--;
             takeTurn(tileQueue);
         } else if (action == "P" || action == "p") {
             std::cout << "Turn skipped" << std::endl;
@@ -138,6 +166,7 @@ const std::string& Player::getName() const {
 const std::string& Player::getColor() const {
     return color;
 }
+
 
 
 

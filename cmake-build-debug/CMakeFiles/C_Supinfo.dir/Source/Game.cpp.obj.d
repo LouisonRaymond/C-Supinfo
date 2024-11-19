@@ -147,18 +147,9 @@ CMakeFiles/C_Supinfo.dir/Source/Game.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator.h \
  C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Game.h \
- C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/board.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/map \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tree.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_map.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tuple \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_multimap.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/erase_if.h \
- C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Player.h \
- C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Tiles.h \
  C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Menu.h \
  C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Tiles.h \
  C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Board.h \
  C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Player.h \
+ C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Tiles.h \
  C:/Users/Peon4/OneDrive/Documents/GitHub/C-Supinfo/Include/Tiles.h

@@ -2,9 +2,6 @@
 #define BOARD_H
 
 #include <vector>
-#include <map>
-#include <string>
-#include "Player.h"
 
 class Board {
 private:

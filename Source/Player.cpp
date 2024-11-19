@@ -10,7 +10,7 @@
 
 std::vector<Player> players;
 
-// Tableau des couleurs pour les 9 joueurs
+// Color for the 9 players
 const std::string colors[9] = {
     "\033[31m", // Rouge
     "\033[32m", // Vert
@@ -23,33 +23,33 @@ const std::string colors[9] = {
     "\033[95m"  // Violet
 };
 
-// Constructeur pour initialiser le joueur avec son id et son nom
+// constructor
 Player::Player(int id, std::string  name) : id(id), name(std::move(name)), currentTurn(0), exchangeTiles(0) {
     if (id >= 1 && id <= 9) {
-        color = colors[id - 1]; // Assigner une couleur en fonction du numéro du joueur
+        color = colors[id - 1]; // adds a colour related to the id
     } else {
-        color = "\033[37m"; // Couleur par défaut (blanc) si id > 9 (pour plus de sécurité)
+        color = "\033[37m"; // default color white if id is not between 1 and 9
     }
 }
 
-// Fonction pour afficher le joueur avec sa couleur
+// display player info
 void Player::display() const {
-    std::cout << color; // Appliquer la couleur
+    std::cout << color; // put color
     std::cout << "Player " << id << " " << name << " - Turn : " << currentTurn + 1 << std::endl;
-    std::cout << "\033[0m"; // Réinitialiser la couleur
+    std::cout << "\033[0m"; // reset color
 }
 
-// Méthode pour le tour du joueur
+// player turn method
 void Player::takeTurn(std::queue<Tile>& tileQueue) {
     if (currentTurn < 10) {
         currentTurn++;
 
-        // Afficher la tuile actuelle
+        // display actual tile
         if (!tiles.empty()) {
             std::cout << "Current Tile :\n";
             tiles[0].displayTile();
 
-            // Afficher les 5 prochaines tuiles
+            // display queue tiles
             std::cout << "\nNext Tiles :\n";
             for (size_t i = 1; i < tiles.size(); ++i) {
                 tiles[i].displayTile();
@@ -57,7 +57,6 @@ void Player::takeTurn(std::queue<Tile>& tileQueue) {
         } else {
             std::cout << "No Tiles Left\n";
         }
-
 
         std::string action;
 
@@ -70,7 +69,7 @@ void Player::takeTurn(std::queue<Tile>& tileQueue) {
         std::cout << "Enter an action > : ";
         std::cin >> action;
 
-        // Gérer l'action entrée
+        // action management
         if (action == "T" || action == "t") {
             if (!tileQueue.empty()) {
 
@@ -88,7 +87,7 @@ void Player::takeTurn(std::queue<Tile>& tileQueue) {
                     tiles[0].rotate();
                     tiles[0].displayTile();
                 } else if (action == "P" || action == "p") {
-                    // Placer la tuile sur le plateau
+                    // Place tile on board
                     std::cout << "Enter the position (ex: AC ou CF) > : ";
                     std::string position;
                     std::cin >> position;
@@ -99,7 +98,7 @@ void Player::takeTurn(std::queue<Tile>& tileQueue) {
             }
         } else if (action == "E" || action == "e" && exchangeTiles > 0) {
             if (!tileQueue.empty()) {
-                std::cout << "Tuile échangée.\n";
+                std::cout << "Tiles Swap.\n";
                 tiles.push_back(tileQueue.front());
                 tileQueue.pop();
 
@@ -117,14 +116,15 @@ void Player::takeTurn(std::queue<Tile>& tileQueue) {
 
             currentTurn--;
             takeTurn(tileQueue);
+
         } else if (action == "P" || action == "p") {
             std::cout << "Turn skipped" << std::endl;
         } else {
-            std::cout << "Action invalide.\n";
+            std::cout << "Invalid action.\n";
             takeTurn(tileQueue);
             currentTurn--;
         }
-        // Mettre à jour les tuiles du joueur après son action
+
         updateTiles(tileQueue);
 
     }
@@ -134,21 +134,21 @@ bool Player::hasRemainingTurns() const {
     return currentTurn < 10;
 }
 
-// Méthode pour ajouter une tuile d'échange
+// add exchange tile
 void Player::addExchangeTile() {
     exchangeTiles++;
 }
 
-// Méthode pour obtenir le nombre de tuiles d'échange
+// get the number of exchange tiles
 int Player::getExchangeTiles() const {
     return exchangeTiles;
 }
 
-// Mettre à jour les tuiles du joueur
+// update player's tiles
 void Player::updateTiles(std::queue<Tile>& tileQueue) {
     tiles.clear();
 
-    // Ajouter la tuile actuelle + 5 suivantes à la liste du joueur
+    // add tiles to the player
     for (int i = 0; i < 6 && !tileQueue.empty(); ++i) {
         tiles.push_back(tileQueue.front());
         tileQueue.pop();

@@ -12,7 +12,6 @@
 
 extern std::vector<Player> players;
 
-
 int Game_loop()
 {
     // Get the number of players
@@ -21,13 +20,11 @@ int Game_loop()
     // Create the board
     Board gameBoard(player_number);
 
-    // Initialiser la queue des tuiles
+    // create the queue of tiles
     std::queue<Tile> tileQueue = initializeTileQueue(player_number);
 
-    // Initialiser les joueurs avec leurs noms et leurs tuiles
+    // init player with their name and tiles
     menu_player_info(player_number, tileQueue);
-
-    // gameBoard.display();
 
     bool turn_left = true;
     while (turn_left) {
@@ -60,8 +57,6 @@ int Game_loop()
 // for (const auto& player : players) {
 //     player.display();
 // }
-
-
 
 // //Tiles
 // std::vector<Tile> tiles = initializeTiles();

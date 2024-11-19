@@ -8,40 +8,39 @@
 
 class Player {
 public:
-    // Constructeur pour initialiser un joueur avec son numéro et son nom
+    // Constructor to initialize the player with its id and name
     Player(int id, std::string  name);
 
-    // Afficher le joueur avec sa couleur
+    // display player info (number and name, color, turn number)
     void display() const;
 
-    // Méthode pour que le joueur prenne son tour
+    // Method for player's turn
     void takeTurn(std::queue<Tile>& tileQueue);
 
-    // Vérifier si le joueur a atteint le nombre maximum de tours
+    // check if the player has remaining turns
     bool hasRemainingTurns() const;
 
-    // Méthode pour ajouter une tuile d'échange
+    // Method to add an exchange tile
     void addExchangeTile();
 
-    // Méthode pour obtenir le nombre de tuiles d'échange
+    // Method to get the number of exchange tiles
     int getExchangeTiles() const;
 
-    // Mettre à jour les tuiles du joueur
+    // Method to update the player's tiles
     void updateTiles(std::queue<Tile>& tileQueue);
 
-    int getId() const;                  // Retourne l'ID du joueur
-    const std::string& getName() const; // Retourne le nom du joueur
-    const std::string& getColor() const; // Retourne la couleur du joueur
-
+    int getId() const;                  // return the player's id
+    const std::string& getName() const; // return the player's name
+    const std::string& getColor() const; // return the player's color
 
 
 private:
-    int id;                 // Numéro du joueur
-    std::string name;       // Nom du joueur
-    std::string color;      // Couleur du joueur
-    int currentTurn;        // Compteur de tours pour chaque joueur
-    int exchangeTiles;      // Nombre de tuiles d'échange
-    std::vector<Tile> tiles; // Tuiles du joueur
+    int id;                 // player id
+    std::string name;       // name
+    std::string color;      // color
+    int currentTurn;        // Turn number
+    int exchangeTiles;      // Number of exchange tiles
+    std::vector<Tile> tiles; // Player's tiles
 };
 
 

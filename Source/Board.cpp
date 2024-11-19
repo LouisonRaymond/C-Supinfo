@@ -4,7 +4,6 @@
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
-#include <map>
 
 //Include
 #include "../include/Board.h"

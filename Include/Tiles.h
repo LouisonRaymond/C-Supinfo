@@ -2,34 +2,34 @@
 #define TILES_H
 
 #include <vector>
-#include <iostream>
 
 class Tile {
 private:
-    int tileNumber; // Numéro de la tuile (1 à 96)
-    std::vector<std::vector<int>> shape; // Forme de la tuile (matrice 2D)
+    int tileNumber; // number of the tile
+    std::vector<std::vector<int>> shape; // shape of the tile
 
 public:
-    // Constructeur
+    // Constructor
     Tile(int number, const std::vector<std::vector<int>>& shape);
 
-    // Obtenir le numéro de la tuile
+    // get tile number
     int getTileNumber() const;
 
-    // Obtenir la forme de la tuile
+    // get tile shape
     const std::vector<std::vector<int>>& getShape() const;
 
-    // Afficher la tuile
+    // display the tile
     void displayTile() const;
 
+    // rotate the tile
     void rotate();
 
+    // flip the tile
     void flip();
-
 
 };
 
-// Déclaration de la fonction pour initialiser les tuiles
+// Initialize the tiles
 std::vector<Tile> initializeTiles();
 
 std::queue<Tile> initializeTileQueue(int numPlayers);
